@@ -259,6 +259,10 @@ export namespace Components {
          */
         "type": TStatusType;
     }
+    interface BqToast {
+    }
+    interface BqToastItem {
+    }
 }
 export interface BqButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -331,6 +335,18 @@ declare global {
         prototype: HTMLBqStatusElement;
         new (): HTMLBqStatusElement;
     };
+    interface HTMLBqToastElement extends Components.BqToast, HTMLStencilElement {
+    }
+    var HTMLBqToastElement: {
+        prototype: HTMLBqToastElement;
+        new (): HTMLBqToastElement;
+    };
+    interface HTMLBqToastItemElement extends Components.BqToastItem, HTMLStencilElement {
+    }
+    var HTMLBqToastItemElement: {
+        prototype: HTMLBqToastItemElement;
+        new (): HTMLBqToastItemElement;
+    };
     interface HTMLElementTagNameMap {
         "bq-avatar": HTMLBqAvatarElement;
         "bq-badge": HTMLBqBadgeElement;
@@ -341,6 +357,8 @@ declare global {
         "bq-radio": HTMLBqRadioElement;
         "bq-radio-group": HTMLBqRadioGroupElement;
         "bq-status": HTMLBqStatusElement;
+        "bq-toast": HTMLBqToastElement;
+        "bq-toast-item": HTMLBqToastItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -610,6 +628,10 @@ declare namespace LocalJSX {
          */
         "type"?: TStatusType;
     }
+    interface BqToast {
+    }
+    interface BqToastItem {
+    }
     interface IntrinsicElements {
         "bq-avatar": BqAvatar;
         "bq-badge": BqBadge;
@@ -620,6 +642,8 @@ declare namespace LocalJSX {
         "bq-radio": BqRadio;
         "bq-radio-group": BqRadioGroup;
         "bq-status": BqStatus;
+        "bq-toast": BqToast;
+        "bq-toast-item": BqToastItem;
     }
 }
 export { LocalJSX as JSX };
@@ -635,6 +659,8 @@ declare module "@stencil/core" {
             "bq-radio": LocalJSX.BqRadio & JSXBase.HTMLAttributes<HTMLBqRadioElement>;
             "bq-radio-group": LocalJSX.BqRadioGroup & JSXBase.HTMLAttributes<HTMLBqRadioGroupElement>;
             "bq-status": LocalJSX.BqStatus & JSXBase.HTMLAttributes<HTMLBqStatusElement>;
+            "bq-toast": LocalJSX.BqToast & JSXBase.HTMLAttributes<HTMLBqToastElement>;
+            "bq-toast-item": LocalJSX.BqToastItem & JSXBase.HTMLAttributes<HTMLBqToastItemElement>;
         }
     }
 }
