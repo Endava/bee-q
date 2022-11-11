@@ -410,15 +410,49 @@ export namespace Components {
         /**
           * If true tab is active
          */
-        "active"?: boolean;
+        "active": boolean;
+        /**
+          * The tab panel id that the tab controls
+         */
+        "controls": string;
         /**
           * If true tab is disabled
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The size of the tab
          */
         "size": TTabSize;
+        /**
+          * The id of the tab
+         */
+        "tabId": string;
+        /**
+          * Remove focus from the native `<button>` HTML element used under the hood. Use this method instead of the global `element.blur()`.
+         */
+        "vBlur": () => Promise<void>;
+        /**
+          * Simulate a click event on the native `<button>` HTML element used under the hood. Use this method instead of the global `element.click()`.
+         */
+        "vClick": () => Promise<void>;
+        /**
+          * Sets focus on the native `<button>` HTML element used under the hood. Use this method instead of the global `element.focus()`.
+         */
+        "vFocus": () => Promise<void>;
+    }
+    interface BqTabGroup {
+        /**
+          * A number representing the delay value applied to bqChange event handler
+         */
+        "debounceTime": number;
+        /**
+          * If true tabs are disabled
+         */
+        "disabled": boolean;
+        /**
+          * A string representing the id of the selected tab.
+         */
+        "value": string;
     }
     interface BqTooltip {
         /**
@@ -479,6 +513,14 @@ export interface BqSliderCustomEvent<T> extends CustomEvent<T> {
 export interface BqSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBqSwitchElement;
+}
+export interface BqTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBqTabElement;
+}
+export interface BqTabGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBqTabGroupElement;
 }
 declare global {
     /**
@@ -575,6 +617,12 @@ declare global {
         prototype: HTMLBqTabElement;
         new (): HTMLBqTabElement;
     };
+    interface HTMLBqTabGroupElement extends Components.BqTabGroup, HTMLStencilElement {
+    }
+    var HTMLBqTabGroupElement: {
+        prototype: HTMLBqTabGroupElement;
+        new (): HTMLBqTabGroupElement;
+    };
     interface HTMLBqTooltipElement extends Components.BqTooltip, HTMLStencilElement {
     }
     var HTMLBqTooltipElement: {
@@ -595,6 +643,7 @@ declare global {
         "bq-status": HTMLBqStatusElement;
         "bq-switch": HTMLBqSwitchElement;
         "bq-tab": HTMLBqTabElement;
+        "bq-tab-group": HTMLBqTabGroupElement;
         "bq-tooltip": HTMLBqTooltipElement;
     }
 }
@@ -1017,13 +1066,55 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
+          * The tab panel id that the tab controls
+         */
+        "controls": string;
+        /**
           * If true tab is disabled
          */
         "disabled"?: boolean;
         /**
+          * Handler to be called when the tab loses focus
+         */
+        "onBqBlur"?: (event: BqTabCustomEvent<HTMLBqTabElement>) => void;
+        /**
+          * Handler to be called when the tab state changes
+         */
+        "onBqClick"?: (event: BqTabCustomEvent<HTMLBqTabElement>) => void;
+        /**
+          * Handler to be called when the tab gets focus
+         */
+        "onBqFocus"?: (event: BqTabCustomEvent<HTMLBqTabElement>) => void;
+        /**
+          * Handler to be called when the tab key is pressed
+         */
+        "onBqKeyDown"?: (event: BqTabCustomEvent<KeyboardEvent>) => void;
+        /**
           * The size of the tab
          */
         "size"?: TTabSize;
+        /**
+          * The id of the tab
+         */
+        "tabId": string;
+    }
+    interface BqTabGroup {
+        /**
+          * A number representing the delay value applied to bqChange event handler
+         */
+        "debounceTime"?: number;
+        /**
+          * If true tabs are disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Handler to be called when the tab value changes
+         */
+        "onBqChange"?: (event: BqTabGroupCustomEvent<{ target: HTMLBqTabElement; value: string }>) => void;
+        /**
+          * A string representing the id of the selected tab.
+         */
+        "value"?: string;
     }
     interface BqTooltip {
         /**
@@ -1062,6 +1153,7 @@ declare namespace LocalJSX {
         "bq-status": BqStatus;
         "bq-switch": BqSwitch;
         "bq-tab": BqTab;
+        "bq-tab-group": BqTabGroup;
         "bq-tooltip": BqTooltip;
     }
 }
@@ -1098,6 +1190,7 @@ declare module "@stencil/core" {
              */
             "bq-switch": LocalJSX.BqSwitch & JSXBase.HTMLAttributes<HTMLBqSwitchElement>;
             "bq-tab": LocalJSX.BqTab & JSXBase.HTMLAttributes<HTMLBqTabElement>;
+            "bq-tab-group": LocalJSX.BqTabGroup & JSXBase.HTMLAttributes<HTMLBqTabGroupElement>;
             "bq-tooltip": LocalJSX.BqTooltip & JSXBase.HTMLAttributes<HTMLBqTooltipElement>;
         }
     }
