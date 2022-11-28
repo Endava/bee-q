@@ -25,11 +25,13 @@
 
 ### Used by
 
+ - [bq-breadcrumb-item](../breadcrumb)
  - [bq-button](../button)
 
 ### Graph
 ```mermaid
 graph TD;
+  bq-breadcrumb-item --> bq-icon
   bq-button --> bq-icon
   style bq-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

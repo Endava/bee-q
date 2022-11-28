@@ -1,0 +1,17 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Breadcrumb item styles                                */
+/* -------------------------------------------------------------------------- */
+
+@import './bq-breadcrumb.variables';
+
+.breadcrumb-item {
+  @apply flex h-5 w-auto list-none;
+
+  a {
+    @apply flex flex-row items-center text-[color:var(--bq-breadcrumb--color)] no-underline;
+
+    .breadcrumb-item-icon {
+      @apply flex h-auto items-center pr-1;
+    }
+  }
+}
