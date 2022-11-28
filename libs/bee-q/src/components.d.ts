@@ -12,6 +12,7 @@ import { TDividerOrientation, TDividerStrokeLinecap, TDividerTitleAlignment } fr
 import { TIconWeight } from "./components/icon/bq-icon.types";
 import { TRadioGroupOrientation } from "./components/radio-group/bq-radio-group.types";
 import { TStatusType } from "./components/status/bq-status.types";
+import { TToastType } from "./components/toast-item/bq-toast-item.types";
 export namespace Components {
     interface BqAvatar {
         /**
@@ -262,6 +263,10 @@ export namespace Components {
     interface BqToast {
     }
     interface BqToastItem {
+        /**
+          * It defines the type of toast message to display
+         */
+        "type": TToastType;
     }
 }
 export interface BqButtonCustomEvent<T> extends CustomEvent<T> {
@@ -631,6 +636,10 @@ declare namespace LocalJSX {
     interface BqToast {
     }
     interface BqToastItem {
+        /**
+          * It defines the type of toast message to display
+         */
+        "type"?: TToastType;
     }
     interface IntrinsicElements {
         "bq-avatar": BqAvatar;

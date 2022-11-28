@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The toast component is designed to wrap the bq-toast-item component.
+
 ## Shadow Parts
 
 | Part     | Description                                                     |

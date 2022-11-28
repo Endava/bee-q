@@ -55,6 +55,10 @@ export class BqToast {
   // ===================================
 
   render() {
-    return <div part="base"></div>;
+    return (
+      <div part="base">
+        <slot />
+      </div>
+    );
   }
 }
