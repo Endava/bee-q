@@ -5,3 +5,5 @@ export * from './slot';
 export * from './isDefined';
 export * from './isNil';
 export * from './isEmpty';
+export * from './isHTMLElement';
+export * from './debounce';
