@@ -25,7 +25,11 @@ export class BqBreadcrumbItem {
    */
   @Prop() link: string;
 
-  //@Prop() dropdown: boolean;
+  /**
+   * Contains an arrow
+   * If prop is set to true, it displays the options
+   */
+  @Prop() dropdown: boolean;
 
   render() {
     return (
@@ -39,6 +43,13 @@ export class BqBreadcrumbItem {
             ''
           )}
           <slot></slot>
+          {this.dropdown ? (
+            <div class="breadcrumb-item-dropdown">
+              <bq-icon name="caret-down" size="10"></bq-icon>
+            </div>
+          ) : (
+            ''
+          )}
         </a>
       </li>
     );
