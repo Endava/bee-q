@@ -8,23 +8,35 @@
 .bq-breadcrumb-menu {
   @apply w-full;
 
+  ::slotted(*) {
+    @apply flex items-start;
+  }
+
+  ::slotted(*)::after {
+    content: '\00a0/\00a0';
+  }
+
+  ::slotted(*:last-child)::after {
+    content: '';
+  }
+
+  ::slotted(*:last-child) {
+    @apply flex text-[color:var(--bq-bradcrumb--color)];
+  }
+
   .bq-breadcrumb {
     @apply flex flex-row items-center text-[color:var(--bq-text--secondary)];
+  }
 
-    ::slotted(*) {
-      @apply flex items-start;
+  .bq-breadcrum-collapsable {
+    @apply flex flex-row items-center text-[color:var(--bq-text--secondary)];
+
+    ::slotted(*:not(:nth-child(-n + 2), :nth-last-child(-n + 2))) {
+      @apply hidden text-[color:blue];
     }
 
-    ::slotted(*)::after {
-      content: '\00a0/\00a0';
-    }
-
-    ::slotted(*:last-child)::after {
-      content: '';
-    }
-
-    ::slotted(*:last-child) {
-      @apply flex text-[color:var(--bq-bradcrumb--color)];
+    ::slotted(*:nth-child(2))::after {
+      content: '\00a0/\00a0...\00a0/\00a0';
     }
   }
 }

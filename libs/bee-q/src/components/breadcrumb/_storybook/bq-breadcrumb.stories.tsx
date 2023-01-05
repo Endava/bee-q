@@ -31,41 +31,57 @@ export const BreadcrumbItem = (args) => html`
       display: flex;
       flex-direction: column;
     }
-    /* .row {
-      display:flex;
-      flex-direction:column;
-    } */
   </style>
   <div class="main">
     <div class="container">
-      <bq-breadcrumb-item>Home</bq-breadcrumb-item> <br />
-      <bq-breadcrumb-item icon=${args.icon}>Home</bq-breadcrumb-item> <br />
-      <bq-breadcrumb-item icon=${args.icon}></bq-breadcrumb-item> <br />
+      <bq-breadcrumb-item>${args.label || 'Application Center'}</bq-breadcrumb-item> <br />
+      <bq-breadcrumb-item icon=${args.icon || 'house'}>${args.label || 'Application Center'}</bq-breadcrumb-item> <br />
+      <bq-breadcrumb-item icon=${args.icon || 'house'}></bq-breadcrumb-item> <br />
     </div>
     <div class="container">
-      <bq-breadcrumb-item dropdown=${args.dropdown}>Home</bq-breadcrumb-item> <br />
-      <bq-breadcrumb-item icon=${args.icon} dropdown=${args.dropdown}>Home</bq-breadcrumb-item> <br />
-      <bq-breadcrumb-item icon=${args.icon} dropdown=${args.dropdown}></bq-breadcrumb-item>
+      <bq-breadcrumb-item dropdown=${args.dropdown}>${args.label || 'Application Center'}</bq-breadcrumb-item> <br />
+      <bq-breadcrumb-item icon=${args.icon || 'house'} dropdown=${args.dropdown}
+        >${args.label || 'Application Center'}</bq-breadcrumb-item
+      >
+      <br />
+      <bq-breadcrumb-item icon=${args.icon || 'house'} dropdown=${args.dropdown}></bq-breadcrumb-item>
     </div>
   </div>
 `;
 
 export const Breadcrumb = (args) => html`
   <bq-breadcrumb>
-    <bq-breadcrumb-item>Home</bq-breadcrumb-item>
-    <bq-breadcrumb-item>An Application</bq-breadcrumb-item>
+    <bq-breadcrumb-item icon=${args.icon || 'house'}>Home</bq-breadcrumb-item>
+    <bq-breadcrumb-item>${args.label || 'Application Center'}</bq-breadcrumb-item>
   </bq-breadcrumb>
   <br />
   <bq-breadcrumb>
-    <bq-breadcrumb-item>Home</bq-breadcrumb-item>
+    <bq-breadcrumb-item icon=${args.icon || 'house'}>Home</bq-breadcrumb-item>
     <bq-breadcrumb-item>Application Center</bq-breadcrumb-item>
     <bq-breadcrumb-item>An Application</bq-breadcrumb-item>
   </bq-breadcrumb>
   <br />
   <bq-breadcrumb>
-    <bq-breadcrumb-item>Home</bq-breadcrumb-item>
+    <bq-breadcrumb-item icon=${args.icon || 'house'}>Home</bq-breadcrumb-item>
     <bq-breadcrumb-item>Application Center</bq-breadcrumb-item>
-    <bq-breadcrumb-item>Application List </bq-breadcrumb-item>
+    <bq-breadcrumb-item dropdown=${args.dropdown}>Application List </bq-breadcrumb-item>
     <bq-breadcrumb-item>An Application</bq-breadcrumb-item>
+  </bq-breadcrumb>
+  <br />
+  <bq-breadcrumb>
+    <bq-breadcrumb-item icon=${args.icon || 'house'}>Home</bq-breadcrumb-item>
+    <bq-breadcrumb-item>Application Center</bq-breadcrumb-item>
+    <bq-breadcrumb-item dropdown=${args.dropdown}>Application List </bq-breadcrumb-item>
+    <bq-breadcrumb-item>An Application</bq-breadcrumb-item>
+    <bq-breadcrumb-item>Another Application </bq-breadcrumb-item>
+    <bq-breadcrumb-item>Last Application </bq-breadcrumb-item>
+  </bq-breadcrumb>
+  <br />
+  <bq-breadcrumb>
+    <bq-breadcrumb-item icon=${args.icon || 'house'}>Home</bq-breadcrumb-item>
+    <bq-breadcrumb-item>Application Center</bq-breadcrumb-item>
+    <bq-breadcrumb-item dropdown=${args.dropdown}>Application List </bq-breadcrumb-item>
+    <bq-breadcrumb-item>An Application</bq-breadcrumb-item>
+    <bq-breadcrumb-item>Another Application </bq-breadcrumb-item>
   </bq-breadcrumb>
 `;

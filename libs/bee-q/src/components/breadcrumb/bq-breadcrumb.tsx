@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Element } from '@stencil/core';
 
 @Component({
   tag: 'bq-breadcrumb',
@@ -6,11 +6,13 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class BqBreadcrumb {
+  @Element() host: HTMLElement;
+
   render() {
     return (
       <nav class={'bq-breadcrumb-menu'}>
-        <ul class={'bq-breadcrumb'}>
-          <slot>/</slot>
+        <ul class={this.host.children.length <= 4 ? 'bq-breadcrumb' : 'bq-breadcrum-collapsable'}>
+          <slot></slot>
         </ul>
       </nav>
     );

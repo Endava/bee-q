@@ -13,5 +13,9 @@
     .breadcrumb-item-icon {
       @apply flex h-auto items-center pr-1;
     }
+
+    .breadcrumb-item-dropdown {
+      @apply pl-1;
+    }
   }
 }
