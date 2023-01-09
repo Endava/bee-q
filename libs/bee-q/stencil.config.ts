@@ -14,6 +14,9 @@ export const config: Config = {
   taskQueue: 'async',
   sourceMap: true,
   globalStyle: './src/global/styles/default.scss',
+  testing: {
+    browserArgs: ['--single-process'],
+  },
   plugins: [
     sass({
       includePaths: [
@@ -37,7 +40,9 @@ export const config: Config = {
         plugins: [tailwindcss()],
       },
     }),
-    tailwindHMR(),
+    tailwindHMR({
+      tailwindConf: tailwindConf,
+    }),
   ],
   outputTargets: [
     { type: 'docs-readme' },

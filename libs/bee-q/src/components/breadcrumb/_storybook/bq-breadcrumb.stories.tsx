@@ -1,6 +1,5 @@
 import { html } from 'lit-html';
 import mdx from './bq-breadcrumb.mdx';
-import { BqIcon } from '../../../../../bee-q-angular/src';
 import { ICONS_SET } from '../../icon/helper/icons-set';
 
 export default {
