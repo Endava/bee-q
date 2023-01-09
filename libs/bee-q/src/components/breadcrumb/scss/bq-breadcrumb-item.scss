@@ -8,10 +8,10 @@
   @apply flex h-5 w-auto list-none;
 
   a {
-    @apply flex flex-row items-center text-[color:var(--bq-breadcrumb--color)] no-underline;
+    @apply flex flex-row text-[color:var(--bq-breadcrumb--color)] no-underline;
 
     .breadcrumb-item-icon {
-      @apply flex h-auto items-center pr-1;
+      @apply flex items-center pr-1;
     }
 
     .breadcrumb-item-dropdown {

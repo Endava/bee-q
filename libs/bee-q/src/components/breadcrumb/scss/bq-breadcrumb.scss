@@ -21,7 +21,7 @@
   }
 
   ::slotted(*:last-child) {
-    @apply flex text-[color:var(--bq-bradcrumb--color)];
+    @apply flex flex-row items-center text-[color:var(--bq-bradcrumb--color)];
   }
 
   .bq-breadcrumb {
