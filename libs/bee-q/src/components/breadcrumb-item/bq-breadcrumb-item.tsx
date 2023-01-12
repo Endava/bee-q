@@ -33,10 +33,10 @@ export class BqBreadcrumbItem {
 
   render() {
     return (
-      <li class="breadcrumb-item">
+      <li class="bq-breadcrumb__item">
         <a href={this.link}>
           {this.icon != null ? (
-            <div class="breadcrumb-item-icon">
+            <div class="bq-breadcrumb__item bq-breadcrumb__item--icon">
               <bq-icon name={this.icon} size={14}></bq-icon>
             </div>
           ) : (
@@ -44,7 +44,7 @@ export class BqBreadcrumbItem {
           )}
           <slot></slot>
           {this.dropdown ? (
-            <div class="breadcrumb-item-dropdown">
+            <div class="bq-breadcrumb__item bq-breadcrumb__item--dropdown">
               <bq-icon name="caret-down" size="10"></bq-icon>
             </div>
           ) : (

@@ -5,34 +5,30 @@
 @import '../../../global/styles/themes/colors';
 @import './bq-breadcrumb.variables';
 
-.bq-breadcrumb-menu {
+.bq-breadcrumb {
   @apply w-full;
 
   ::slotted(*) {
     @apply flex items-start;
   }
 
-  ::slotted(*)::after {
+  ::slotted(*:not(:nth-last-child(-n + 1)))::after {
     content: '\00a0/\00a0';
   }
 
-  ::slotted(*:last-child)::after {
-    content: '';
-  }
-
   ::slotted(*:last-child) {
-    @apply flex flex-row items-center text-[color:var(--bq-bradcrumb--color)];
+    @apply flex flex-row text-[color:var(--bq-breadcrumb--color)];
   }
 
-  .bq-breadcrumb {
-    @apply flex flex-row items-center text-[color:var(--bq-text--secondary)];
+  &--extended {
+    @apply flex flex-row items-center text-text-secondary;
   }
 
-  .bq-breadcrum-collapsable {
-    @apply flex flex-row items-center text-[color:var(--bq-text--secondary)];
+  &--collapsable {
+    @apply flex flex-row items-center text-text-secondary;
 
     ::slotted(*:not(:nth-child(-n + 2), :nth-last-child(-n + 2))) {
-      @apply hidden text-[color:blue];
+      @apply hidden;
     }
 
     ::slotted(*:nth-child(2))::after {

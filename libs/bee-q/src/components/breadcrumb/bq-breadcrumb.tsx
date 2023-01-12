@@ -10,8 +10,14 @@ export class BqBreadcrumb {
 
   render() {
     return (
-      <nav class={'bq-breadcrumb-menu'}>
-        <ul class={this.host.children.length <= 4 ? 'bq-breadcrumb' : 'bq-breadcrum-collapsable'}>
+      <nav class="bq-breadcrumb">
+        <ul
+          class={
+            this.host.children.length <= 4
+              ? ' bq-breadcrumb bq-breadcrumb--extended'
+              : ' bq-breadcrumb bq-breadcrumb--collapsable'
+          }
+        >
           <slot></slot>
         </ul>
       </nav>

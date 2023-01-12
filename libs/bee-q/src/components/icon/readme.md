@@ -36,7 +36,7 @@ Icons are simplified images that graphically explain the meaning of an object on
 
 ### Used by
 
- - [bq-breadcrumb-item](../breadcrumb)
+ - [bq-breadcrumb-item](../breadcrumb-item)
  - [bq-button](../button)
 
 ### Graph

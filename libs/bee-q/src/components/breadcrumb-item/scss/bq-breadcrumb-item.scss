@@ -2,20 +2,18 @@
 /*                                 Breadcrumb item styles                                */
 /* -------------------------------------------------------------------------- */
 
-@import './bq-breadcrumb.variables';
-
-.breadcrumb-item {
+.bq-breadcrumb__item {
   @apply flex h-5 w-auto list-none;
 
   a {
-    @apply flex flex-row text-[color:var(--bq-breadcrumb--color)] no-underline;
+    @apply flex flex-row no-underline;
+  }
 
-    .breadcrumb-item-icon {
-      @apply flex items-center pr-1;
-    }
+  &--icon {
+    @apply flex items-center pr-1;
+  }
 
-    .breadcrumb-item-dropdown {
-      @apply pl-1;
-    }
+  &--dropdown {
+    @apply pl-1;
   }
 }
