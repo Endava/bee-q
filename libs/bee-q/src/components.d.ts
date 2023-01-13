@@ -54,21 +54,18 @@ export namespace Components {
          */
         "textColor"?: string;
     }
+    /**
+     * A breadcrumb or breadcrumb trail is a graphical control element used as a navigational aid
+     * in user interfaces and on web pages. It allows users to keep track and maintain awareness
+     * of their locations within programs, documents, or websites.
+     */
     interface BqBreadcrumb {
     }
     interface BqBreadcrumbItem {
         /**
-          * Active the condition active of item, basically used by latest item in breadcrumb component
-         */
-        "active": boolean;
-        /**
           * Contains an arrow If prop is set to true, it displays the options
          */
         "dropdown": boolean;
-        /**
-          * Icon image used by the item in breadcrumb component
-         */
-        "icon": string;
         /**
           * Contains a URL If prop is set, an anchor tag will be rendered
          */
@@ -404,6 +401,11 @@ declare global {
         prototype: HTMLBqBadgeElement;
         new (): HTMLBqBadgeElement;
     };
+    /**
+     * A breadcrumb or breadcrumb trail is a graphical control element used as a navigational aid
+     * in user interfaces and on web pages. It allows users to keep track and maintain awareness
+     * of their locations within programs, documents, or websites.
+     */
     interface HTMLBqBreadcrumbElement extends Components.BqBreadcrumb, HTMLStencilElement {
     }
     var HTMLBqBreadcrumbElement: {
@@ -532,21 +534,18 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
+    /**
+     * A breadcrumb or breadcrumb trail is a graphical control element used as a navigational aid
+     * in user interfaces and on web pages. It allows users to keep track and maintain awareness
+     * of their locations within programs, documents, or websites.
+     */
     interface BqBreadcrumb {
     }
     interface BqBreadcrumbItem {
         /**
-          * Active the condition active of item, basically used by latest item in breadcrumb component
-         */
-        "active"?: boolean;
-        /**
           * Contains an arrow If prop is set to true, it displays the options
          */
         "dropdown"?: boolean;
-        /**
-          * Icon image used by the item in breadcrumb component
-         */
-        "icon"?: string;
         /**
           * Contains a URL If prop is set, an anchor tag will be rendered
          */
@@ -894,6 +893,11 @@ declare module "@stencil/core" {
              */
             "bq-avatar": LocalJSX.BqAvatar & JSXBase.HTMLAttributes<HTMLBqAvatarElement>;
             "bq-badge": LocalJSX.BqBadge & JSXBase.HTMLAttributes<HTMLBqBadgeElement>;
+            /**
+             * A breadcrumb or breadcrumb trail is a graphical control element used as a navigational aid
+             * in user interfaces and on web pages. It allows users to keep track and maintain awareness
+             * of their locations within programs, documents, or websites.
+             */
             "bq-breadcrumb": LocalJSX.BqBreadcrumb & JSXBase.HTMLAttributes<HTMLBqBreadcrumbElement>;
             "bq-breadcrumb-item": LocalJSX.BqBreadcrumbItem & JSXBase.HTMLAttributes<HTMLBqBreadcrumbItemElement>;
             /**

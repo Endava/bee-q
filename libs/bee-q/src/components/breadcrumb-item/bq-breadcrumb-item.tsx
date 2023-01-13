@@ -1,5 +1,11 @@
 import { Component, h, Prop } from '@stencil/core';
 
+/**
+ * @part base - The component's internal wrapper of the breadcrumb component.
+ * @part link - The native HTML `<input type="radio">` used under the hood.
+ * @part prefix - The `<span>` element that holds the prefix.
+ * @part dropdown - The `<span>` element that holds the dropdown.
+ */
 @Component({
   tag: 'bq-breadcrumb-item',
   styleUrl: './scss/bq-breadcrumb-item.scss',
@@ -7,24 +13,10 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class BqBreadcrumbItem {
   /**
-   * Icon
-   * image used by the item in breadcrumb component
-   * */
-  @Prop() icon: string;
-
-  /**
-   * Active
-   * the condition active of item,
-   * basically used by latest item in breadcrumb component
-   * */
-  @Prop() active: boolean;
-
-  /**
    * Contains a URL
    * If prop is set, an anchor tag will be rendered
    */
   @Prop() link: string;
-
   /**
    * Contains an arrow
    * If prop is set to true, it displays the options
@@ -33,18 +25,14 @@ export class BqBreadcrumbItem {
 
   render() {
     return (
-      <li class="bq-breadcrumb__item">
-        <a href={this.link}>
-          {this.icon != null ? (
-            <div class="bq-breadcrumb__item bq-breadcrumb__item--icon">
-              <bq-icon name={this.icon} size={14}></bq-icon>
-            </div>
-          ) : (
-            ''
-          )}
+      <li class="bq-breadcrumb__item" part="base">
+        <a href={this.link} part="link">
+          <span class="bq-breadcrumb__item bq-breadcrumb__item--prefix" part="prefix">
+            <slot name="prefix" />
+          </span>
           <slot></slot>
           {this.dropdown ? (
-            <div class="bq-breadcrumb__item bq-breadcrumb__item--dropdown">
+            <div class="bq-breadcrumb__item bq-breadcrumb__item--dropdown" part="dropdown">
               <bq-icon name="caret-down" size="10"></bq-icon>
             </div>
           ) : (
