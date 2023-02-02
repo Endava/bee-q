@@ -153,6 +153,15 @@ describe('slot', () => {
       expect(hasSlotContent(element)).toBe(true);
     });
 
+    it('should return true if slot has html element', () => {
+      element.querySelector.mockImplementationOnce(() => {
+        const slot = makeSlot();
+        slot.assignedElements.mockImplementationOnce(() => [document.createElement('div')]);
+        return slot;
+      });
+      expect(hasSlotContent(element, 'text')).toBe(true);
+    });
+
     it('should return false if slot html is empty', () => {
       element.querySelector.mockImplementationOnce(() => {
         const slot = makeSlot();
