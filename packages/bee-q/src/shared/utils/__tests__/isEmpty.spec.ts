@@ -1,6 +1,11 @@
 import { isEmpty } from '..';
 
 describe(isEmpty.name, () => {
+  it('should return true for null or undefined ', () => {
+    expect(isEmpty(null)).toBe(true);
+    expect(isEmpty(undefined)).toBe(true);
+  });
+
   it('should return true for empty array', () => {
     expect(isEmpty([])).toBe(true);
   });
