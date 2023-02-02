@@ -57,4 +57,16 @@ describe(debounce.name, () => {
     expect(spy).toHaveBeenNthCalledWith(1, '0');
     expect(spy).toHaveBeenLastCalledWith('test value');
   });
+
+  it('should call the function after 0 ms delay', () => {
+    const spy = jest.fn<void, string[]>();
+
+    const fn = debounce(spy);
+
+    fn('test value');
+    jest.advanceTimersByTime(0);
+
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith('test value');
+  });
 });
