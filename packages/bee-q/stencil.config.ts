@@ -14,6 +14,22 @@ export const config: Config = {
   namespace: 'bee-q',
   taskQueue: 'async',
   globalStyle: resolve(__dirname, './src/global/styles/default.scss').replace(/\\/g, '/'),
+  testing: {
+    coverageThreshold: {
+      global: {
+        branches: 80,
+        functions: 80,
+        lines: 80,
+        statements: 80,
+      },
+      'packages/bee-q/src/shared/utils/': {
+        branches: 100,
+        functions: 100,
+        lines: 100,
+        statements: 100,
+      },
+    },
+  },
   plugins: [
     sass({
       includePaths: [
