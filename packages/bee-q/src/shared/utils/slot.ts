@@ -11,7 +11,7 @@ function isTextNode(node: Node): node is Text {
   return node.nodeType === Node.TEXT_NODE;
 }
 
-function getText(node: Node, currentLevel = 1, maxLevel = Infinity): string {
+function getText(node: Node, currentLevel: number, maxLevel = Infinity): string {
   let text = '';
   if (currentLevel <= maxLevel) {
     if (isTextNode(node)) {
