@@ -10,6 +10,7 @@
 master.zip
 packages/bee-q/.storybook/css/**
 packages/bee-q/custom-elements.json
+packages/bee-q/coverage/
 packages/bee-q/src/components/icon/svg/**
 packages/bee-q-angular/**/directives
 packages/bee-q-react/src/react-component-lib

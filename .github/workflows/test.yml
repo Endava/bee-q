@@ -61,7 +61,7 @@ jobs:
         run: npx nx-cloud start-ci-run
 
       - name: 🩺 Run Linters and Unit Tests
-        run: npx nx affected --target=test --ci --code-coverage --exclude=workspace --output-style=stream-without-prefixes
+        run: npx nx affected --target=test --ci --coverage --exclude=workspace --output-style=stream-without-prefixes
 
       - name: ⏳ Build
         run: npm run build
