@@ -8,5 +8,6 @@ export const isHTMLElement = <T extends keyof HTMLElementTagNameMap = keyof HTML
   target: unknown,
   tag: T,
 ): target is HTMLElementTagNameMap[T] => {
+  /* istanbul ignore next we cannot create an instance of Node usign jsdom */
   return target instanceof Node && target.nodeName.toLowerCase() === tag;
 };
