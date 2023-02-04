@@ -67,7 +67,7 @@ jobs:
         run: npm run build
 
       - name: 🧪 Run E2E Tests (only affected)
-        run: npx nx affected --target=e2e --ci --code-coverage --exclude=workspace --output-style=stream-without-prefixes
+        run: npx nx affected --target=e2e --ci --exclude=workspace --output-style=stream-without-prefixes
 
       - name: 📴 Stop NX Cloud Agent
         run: npx nx-cloud stop-all-agents
